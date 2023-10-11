@@ -4,4 +4,4 @@ using UNIX signals.
 
 | Score | Time invested | Documentation |
 |-------|---------------|---------------|
-| ![0%](https://progess-bar.dev/125) | 0h | [Notion: minitalk](https://www.notion.so/62c2132e1d8b4014b455c4527ea59013?v=958e043a71574af682dc7439bd7bc09e&pvs=4) |
+| ![125%](https://progess-bar.dev/0) | 0h | [Notion: minitalk](https://www.notion.so/Minitalk-fa77b414a8794dff91a7d42642830d5e?pvs=4) |

@@ -6,7 +6,7 @@
 /*   By: telufulu <telufulu@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 03:05:32 by telufulu          #+#    #+#             */
-/*   Updated: 2023/10/11 17:52:13 by telufulu         ###   ########.fr       */
+/*   Updated: 2023/10/13 19:14:23 by telufulu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <signal.h>
+#include "ft_printf.h"
 
 //server.c
 
 //client.c
 
 //utils.c
-void	ft_putstr_fd(char *s, int fd);
-size_t	ft_strlen(const char *s);
+
 #endif

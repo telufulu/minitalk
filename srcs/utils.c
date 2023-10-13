@@ -1,19 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server.c                                           :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: telufulu <telufulu@student.42madrid.com>   +#+  +:+       +#+        */
+/*   By: telufulu <telufulu@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/11 03:04:33 by telufulu          #+#    #+#             */
-/*   Updated: 2023/10/13 19:11:47 by telufulu         ###   ########.fr       */
+/*   Created: 2023/10/13 18:42:41 by telufulu          #+#    #+#             */
+/*   Updated: 2023/10/13 19:08:40 by telufulu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minitalk.h"
-
-int	main()
-{
-	ft_printf("server PID: %i\n", getpid());
-	return (0);
-}

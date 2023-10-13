@@ -6,7 +6,7 @@
 /*   By: telufulu <telufulu@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 03:05:32 by telufulu          #+#    #+#             */
-/*   Updated: 2023/10/11 03:06:53 by telufulu         ###   ########.fr       */
+/*   Updated: 2023/10/11 17:52:13 by telufulu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,4 +22,6 @@
 //client.c
 
 //utils.c
+void	ft_putstr_fd(char *s, int fd);
+size_t	ft_strlen(const char *s);
 #endif

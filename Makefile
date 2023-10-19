@@ -17,15 +17,11 @@ CLIENT_SRCS_FILES		=	client.c utils.c
 SRCS_DIR				=	srcs/
 OBJS_DIR				=	objs/
 
-FT_PRINTF				=	$(FT_PRINTF_DIR)libftprintf.a
-FT_PRINTF_DIR			=	$(INC)ft_printf/
-
 all:	$(NAME) $(CLIENT)
 
 $(NAME): $(SERV_OBJS) $(CLIENT_OBJS)
-	make -C $(FT_PRINTF_DIR)
-	$(CC) $(CFLAGS) $(SERV_OBJS) $(FT_PRINTF) -o $(NAME)
-	$(CC) $(CFLAGS) $(CLIENT_OBJS) $(FT_PRINTF) -o $(CLIENT)
+	$(CC) $(CFLAGS) $(SERV_OBJS) -o $(NAME)
+	$(CC) $(CFLAGS) $(CLIENT_OBJS) -o $(CLIENT)
 
 $(OBJS_DIR)%.o:	$(SRCS_DIR)%.c
 	[ -d $(OBJS_DIR) ] | mkdir -p $(OBJS_DIR)

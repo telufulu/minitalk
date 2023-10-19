@@ -6,19 +6,21 @@
 /*   By: telufulu <telufulu@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 03:04:17 by telufulu          #+#    #+#             */
-/*   Updated: 2023/10/19 17:51:56 by telufulu         ###   ########.fr       */
+/*   Updated: 2023/10/20 00:38:55 by telufulu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-void	send_msg(pid_t pid, char *msg)
+static void send_msg(pid_t pid, char *msg)
 {
 	size_t	i;
 	int		j;
+	size_t	len;
 
 	i = 0;
-	while (msg && msg[i])
+	len = ft_strlen(msg);
+	while (msg && i <= len)
 	{
 		j = 128;
 		while (j)
@@ -26,12 +28,12 @@ void	send_msg(pid_t pid, char *msg)
 			if ((msg[i] & j) == j)
 			{
 				kill(pid, SIGUSR1);
-				usleep(150);
+				usleep(100);
 			}
 			else
 			{
 				kill(pid, SIGUSR2);
-				usleep(150);
+				usleep(100);
 			}
 			j = j >> 1;
 		}
@@ -46,12 +48,11 @@ int	main(int argc, char **argv)
 
 	if (argc == 3)
 	{
-		msg = ft_strdup(argv[argc - 1]);
+		msg = argv[argc - 1];
 		if (!msg)
 			return (-1);
 		pid = (pid_t)ft_atoi(argv[argc -2]);
 		send_msg(pid, msg);
-		free(msg);
 	}
 	return (0);
 }

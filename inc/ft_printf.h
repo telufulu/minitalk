@@ -6,7 +6,7 @@
 /*   By: telufulu <telufulu@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 17:47:39 by telufulu          #+#    #+#             */
-/*   Updated: 2023/09/28 18:36:31 by telufulu         ###   ########.fr       */
+/*   Updated: 2023/09/28 02:17:59 by telufulu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,28 +17,29 @@
 # include <unistd.h>
 # include <stdlib.h>
 
-# define NB_OF_CONV 9
+// borrar
+# include <stdio.h>
+//
 
-typedef struct s_store
+# define NB_OF_CONV 8
+
+typedef struct	s_store
 {
 	char	conv;
 	size_t	(*funct)(va_list);
 }				t_store;
 
 // ft_printf.c
-int		ft_printf(char const *s, ...);
+int	ft_printf(char const *s, ...);
 
-// conv_funct_char.c
-size_t	conv_per(va_list arg);
+// conv_funct.c
 size_t	conv_char(va_list arg);
 size_t	conv_string(va_list arg);
 size_t	conv_addrss(va_list arg);
-
-// conv_funct_num.c
 size_t	conv_dec(va_list arg);
 size_t	conv_unsig(va_list arg);
 size_t	conv_hex(va_list arg);
-size_t	conv_uphex(va_list arg);
+size_t	conv_heX(va_list arg);
 
 // libft_utils.c
 void	ft_bzero(void *s, size_t n);

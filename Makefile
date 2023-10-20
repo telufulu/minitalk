@@ -19,8 +19,10 @@ OBJS_DIR				=	objs/
 
 all:	$(NAME) $(CLIENT)
 
-$(NAME): $(SERV_OBJS) $(CLIENT_OBJS)
+$(NAME): $(SERV_OBJS)
 	$(CC) $(CFLAGS) $(SERV_OBJS) -o $(NAME)
+	
+$(CLIENT):	$(CLIENT_OBJS)
 	$(CC) $(CFLAGS) $(CLIENT_OBJS) -o $(CLIENT)
 
 $(OBJS_DIR)%.o:	$(SRCS_DIR)%.c
@@ -37,5 +39,5 @@ fclean: clean
 
 re: fclean all
 
-.SILENT: all $(NAME) $(SERV_OBJS) $(CLIENT_OBJS) re clean fclean
+.SILENT: all $(NAME) $(CLIENT) $(SERV_OBJS) $(CLIENT_OBJS) re clean fclean
 .PHONY: all bonus clean fclean re

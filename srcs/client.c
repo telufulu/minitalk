@@ -6,7 +6,7 @@
 /*   By: telufulu <telufulu@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 03:04:17 by telufulu          #+#    #+#             */
-/*   Updated: 2023/10/20 00:38:55 by telufulu         ###   ########.fr       */
+/*   Updated: 2023/10/20 17:52:10 by telufulu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,10 @@ static void send_msg(pid_t pid, char *msg)
 		while (j)
 		{
 			if ((msg[i] & j) == j)
-			{
 				kill(pid, SIGUSR1);
-				usleep(100);
-			}
 			else
-			{
 				kill(pid, SIGUSR2);
-				usleep(100);
-			}
+			usleep(100);
 			j = j >> 1;
 		}
 		i++;
@@ -49,8 +44,6 @@ int	main(int argc, char **argv)
 	if (argc == 3)
 	{
 		msg = argv[argc - 1];
-		if (!msg)
-			return (-1);
 		pid = (pid_t)ft_atoi(argv[argc -2]);
 		send_msg(pid, msg);
 	}

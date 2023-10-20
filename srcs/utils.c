@@ -6,12 +6,20 @@
 /*   By: telufulu <telufulu@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 18:42:41 by telufulu          #+#    #+#             */
-/*   Updated: 2023/10/20 00:35:37 by telufulu         ###   ########.fr       */
+/*   Updated: 2023/10/20 17:44:43 by telufulu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
+int	ft_error(int err)
+{
+	if (err == 1)
+		write(1, "sigaction error\n", 16);
+	if (err == 2)
+		write(1, "pid error\n", 10);
+	return (-1);
+}
 size_t	ft_strlen(const char *s)
 {
 	size_t	i;

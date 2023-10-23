@@ -6,7 +6,7 @@
 /*   By: telufulu <telufulu@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 03:04:33 by telufulu          #+#    #+#             */
-/*   Updated: 2023/10/23 20:36:09 by telufulu         ###   ########.fr       */
+/*   Updated: 2023/10/23 20:38:21 by telufulu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static void	handler(int signal, siginfo_t *info, void *context)
 
 static void	set_sig(void)
 {
-	struct sigaction sig;
+	struct sigaction	sig;
 
 	if (sigemptyset(&sig.sa_mask))
 		ft_error(1);

@@ -57,5 +57,6 @@ fclean: clean
 
 re: fclean all
 
-.SILENT: name_bonus client_bonus all $(NAME) $(CLIENT) $(SERV_OBJS) $(CLIENT_OBJS) re clean fclean
+.SILENT: bonus name_bonus client_bonus all $(NAME) $(CLIENT) $(SERV_OBJS) \
+	$(CLIENT_OBJS) $(SERV_BONUS_OBJS) $(CLIENT_BONUS_OBJS) re clean fclean
 .PHONY: all bonus clean fclean re

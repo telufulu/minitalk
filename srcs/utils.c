@@ -6,20 +6,24 @@
 /*   By: telufulu <telufulu@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 18:42:41 by telufulu          #+#    #+#             */
-/*   Updated: 2023/10/20 17:44:43 by telufulu         ###   ########.fr       */
+/*   Updated: 2023/10/23 20:34:38 by telufulu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-int	ft_error(int err)
+void	ft_error(int err)
 {
+	write(1, "\x1b[31merror: \x1b[0m", 16);
 	if (err == 1)
-		write(1, "sigaction error\n", 16);
-	if (err == 2)
-		write(1, "pid error\n", 10);
-	return (-1);
+		write(1, "sigaction failure\n", 18);
+	else if (err == 2)
+		write(1, "argument pid is wrong\n", 22);
+	else if (err == 3)
+		write(1, "wrong number of arguments\n", 26);
+	exit(EXIT_FAILURE);
 }
+
 size_t	ft_strlen(const char *s)
 {
 	size_t	i;

@@ -6,7 +6,7 @@
 /*   By: telufulu <telufulu@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 03:04:17 by telufulu          #+#    #+#             */
-/*   Updated: 2023/10/20 17:52:10 by telufulu         ###   ########.fr       */
+/*   Updated: 2023/10/23 20:36:11 by telufulu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,16 +36,31 @@ static void send_msg(pid_t pid, char *msg)
 	}
 }
 
+static void	ok_msg(int signum)
+{
+	if (signum == SIGUSR2)
+	{
+		write(1, "\x1b[32m✓\x1b[0m Received message\n", 30);
+		exit(EXIT_SUCCESS);
+	}
+}
+
 int	main(int argc, char **argv)
 {
 	pid_t	pid;
 	char	*msg;
 
+	signal(SIGUSR2, ok_msg);
 	if (argc == 3)
 	{
 		msg = argv[argc - 1];
-		pid = (pid_t)ft_atoi(argv[argc -2]);
+		pid = (pid_t)ft_atoi(argv[argc - 2]);
+		if (pid < 0)
+			ft_error(2);
 		send_msg(pid, msg);
+		pause();
 	}
+	else
+		ft_error(3);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: telufulu <telufulu@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 18:42:41 by telufulu          #+#    #+#             */
-/*   Updated: 2023/10/23 20:34:38 by telufulu         ###   ########.fr       */
+/*   Updated: 2023/10/24 17:11:15 by telufulu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,23 @@ void	ft_error(int err)
 	if (err == 1)
 		write(1, "sigaction failure\n", 18);
 	else if (err == 2)
-		write(1, "argument pid is wrong\n", 22);
+		write(1, "wrong pid\n", 10);
 	else if (err == 3)
 		write(1, "wrong number of arguments\n", 26);
+	else if (err == 4)
+		write(1, "message not received\n", 21);
 	exit(EXIT_FAILURE);
+}
+
+int	ft_isnotdigit(char *c)
+{
+	while (*c)
+	{
+		if (*c < '0' || *c > '9')
+			return (1);
+		c++;
+	}
+	return (0);
 }
 
 size_t	ft_strlen(const char *s)

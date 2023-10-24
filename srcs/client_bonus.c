@@ -6,7 +6,7 @@
 /*   By: telufulu <telufulu@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 03:04:17 by telufulu          #+#    #+#             */
-/*   Updated: 2023/10/23 20:37:57 by telufulu         ###   ########.fr       */
+/*   Updated: 2023/10/24 17:09:52 by telufulu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,10 @@ static void	send_msg(pid_t pid, char *msg)
 	size_t	i;
 	int		j;
 	size_t	len;
+	int		check;
 
 	i = 0;
+	check = 0;
 	len = ft_strlen(msg);
 	while (msg && i <= len)
 	{
@@ -26,9 +28,11 @@ static void	send_msg(pid_t pid, char *msg)
 		while (j)
 		{
 			if ((msg[i] & j) == j)
-				kill(pid, SIGUSR1);
+				check = kill(pid, SIGUSR1);
 			else
-				kill(pid, SIGUSR2);
+				check = kill(pid, SIGUSR2);
+			if (check < 0)
+				ft_error(2);
 			usleep(100);
 			j = j >> 1;
 		}
@@ -43,6 +47,8 @@ static void	ok_msg(int signum)
 		write(1, "\x1b[32m✓\x1b[0m Received message\n", 30);
 		exit(EXIT_SUCCESS);
 	}
+	else
+		ft_error(4);
 }
 
 int	main(int argc, char **argv)
@@ -55,7 +61,7 @@ int	main(int argc, char **argv)
 	{
 		msg = argv[argc - 1];
 		pid = (pid_t)ft_atoi(argv[argc - 2]);
-		if (pid < 0)
+		if (pid < 0 || ft_isnotdigit(argv[argc - 2]))
 			ft_error(2);
 		send_msg(pid, msg);
 		pause();

@@ -1,3 +1,5 @@
+<img src=".final_score.png" width="100%" />
+
 ### Summary
 The purpose of this project is to code a small data exchange program
 using UNIX signals.

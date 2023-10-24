@@ -6,4 +6,4 @@ using UNIX signals.
 
 | Score | Time invested | Documentation |
 |-------|---------------|---------------|
-| ![125%](https://progress-bar.dev/0) | 0h | [Minitalk](https://www.notion.so/Minitalk-4518bd730f734c85beb54fea47978d53?pvs=21) |
+| ![125%](https://progress-bar.dev/125) | 25h | [Minitalk](https://www.notion.so/Minitalk-4518bd730f734c85beb54fea47978d53?pvs=21) |
